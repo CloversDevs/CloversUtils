@@ -1,0 +1,11 @@
+{
+  "name": "com.clovers.tools",
+  "version": "0.0.1",
+  "displayName": "Unity Scripting Tools",
+  "description": "Tools",
+  "unity": "2020.1",
+  "unityRelease": "0a10",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  }
+}

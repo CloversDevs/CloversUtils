@@ -1,0 +1,18 @@
+{
+    "name": "clovers.tools.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7a929d92f7ab64756b989a4c4d14072e"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
