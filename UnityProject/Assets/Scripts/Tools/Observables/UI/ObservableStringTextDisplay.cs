@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Clovers.Tools
 {
+    [RequireComponent(typeof(TMP_Text))]
     public class ObservableStringTextDisplay : ToolboxMonoBehaviour
     {
         [SerializeField] 
