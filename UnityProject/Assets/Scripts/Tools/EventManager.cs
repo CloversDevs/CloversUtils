@@ -15,11 +15,16 @@ namespace Clovers.Tools
                 {
                     return;
                 }
-                listener?.Invoke((T)message);
+                listener?.Invoke((T) message);
             }
             
             OnEvent += FilteredListener;
             return () => OnEvent -= FilteredListener;
+        }
+        
+        public void SendEvent(ICustomEvent evnt)
+        {
+            OnEvent?.Invoke(evnt.Identifier, evnt);
         }
         
         public void SendEvent(EventIdentifier identifier, object parameters)
