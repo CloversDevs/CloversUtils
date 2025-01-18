@@ -4,40 +4,28 @@ using UnityEngine;
 
 namespace Clovers.Tools
 {
-    public class StaticServiceProvider
+    public static class StaticServiceProvider
     {
-        private static StaticServiceProvider _instance;
-        private readonly Dictionary<Type, object> _context = new();
+        private static readonly Dictionary<Type, object> _context = new();
         
         public static T Get<T>() where T : class
         {
-            return _instance._context[typeof(T)] as T;
-        }
-        
-        public StaticServiceProvider()
-        {
-            if (_instance != null)
-            {
-                Debug.LogError("Overwriting service provider!");
-                _instance.Dispose();
-            }
-            _instance = this;
+            return _context[typeof(T)] as T;
         }
 
         public static void Set<T>(T instance) where T : class
         {
             var type = typeof(T);
-            if (_instance._context.ContainsKey(type))
+            if (_context.ContainsKey(type))
             {
                 Debug.LogWarning($"Replacing existing service: {type}");
             }
-            _instance._context[typeof(T)] = instance;
+            _context[typeof(T)] = instance;
         }
         
-        public void Dispose()
+        public static void Dispose()
         {
             _context.Clear();
-            _instance = null;
         }
     }
 }
