@@ -23,8 +23,9 @@ namespace Clovers.Tools
         public string fieldName;
 
         /// <summary>
-        /// Use reflection to retrieve the Observable<int> field on the sourceComponent by fieldName.
+        /// Use reflection to retrieve the Observable<T> field on the sourceComponent by fieldName.
         /// Returns null if not found or if the cast fails.
+        /// TODO: Can this grab readonly and / or non-serializable fields?
         /// </summary>
         public Observable<T> GetObservable()
         {
@@ -43,7 +44,7 @@ namespace Clovers.Tools
                 return null;
             }
 
-            // Attempt to get the value as Observable<int>
+            // Attempt to get the value as Observable<T>
             object fieldValue = field.GetValue(sourceComponent);
             if (fieldValue is Observable<T> observable)
             {
