@@ -9,18 +9,7 @@ namespace Clovers.Tools
     public class ObservableList<T> : IReadOnlyObservableList<T>
     {
         public event Action<IReadOnlyList<T>> OnChange;
-
-        public IReadOnlyList<T> Value
-        {
-            get => _value;
-            set
-            {
-                _value.Clear();
-                _value.AddRange(value);
-                
-                OnChange?.Invoke(_value);
-            }
-        }
+        public IReadOnlyList<T> Value => _value;
 
         [SerializeField]
         private List<T> _value = new();
@@ -32,6 +21,14 @@ namespace Clovers.Tools
                 return;
             }
             _value.AddRange(value);
+        }
+        
+        public void Set(List<T> value)
+        {
+            _value.Clear();
+            _value.AddRange(value);
+                
+            OnChange?.Invoke(_value);
         }
 
         public void Add(T element)
