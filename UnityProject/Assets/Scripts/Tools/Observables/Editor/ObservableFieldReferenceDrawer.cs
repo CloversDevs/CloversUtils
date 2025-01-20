@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Clovers.Tools.Editor
 {
-    public class ObservableFieldReferenceDrawer<T> : PropertyDrawer
+    public abstract class ObservableFieldReferenceDrawer<T> : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
