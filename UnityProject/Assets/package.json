@@ -1,6 +1,6 @@
 {
   "name": "com.clovers.tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "displayName": "Unity Scripting Tools",
   "description": "Tools",
   "unity": "2020.1",
