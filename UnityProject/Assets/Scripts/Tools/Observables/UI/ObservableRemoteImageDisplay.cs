@@ -70,7 +70,7 @@ namespace Clovers.Tools
             }
             catch (WebException e)
             {
-                Debug.LogError(e);
+                Debug.LogError($"WebException downloading url ('{value}') : {e}");
             }
         }
         

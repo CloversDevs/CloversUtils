@@ -40,7 +40,6 @@ namespace Clovers.Tools
         /// </summary>
         public void ForceNotifyChange()
         {
-            Debug.Log("Changed value");
             OnChange?.Invoke(_value);
         }
 #endif
