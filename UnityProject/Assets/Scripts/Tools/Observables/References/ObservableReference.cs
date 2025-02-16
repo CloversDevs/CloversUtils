@@ -16,10 +16,11 @@ namespace Clovers.Tools
         }
 
         private Observable<T> _value;
-        [Tooltip("The component (e.g. SimpleTree, SimpleMine) that holds an Observable<int> field.")]
+        
+        [Tooltip("The component that holds an Observable field of matching type.")]
         public MonoBehaviour sourceComponent;
 
-        [Tooltip("The name of the Observable<int> field in the source component.")]
+        [Tooltip("The name of the Observable field in the source component.")]
         public string fieldName;
 
         /// <summary>
@@ -30,7 +31,7 @@ namespace Clovers.Tools
         public Observable<T> GetObservable()
         {
             if (sourceComponent == null || string.IsNullOrEmpty(fieldName))
-                return null;
+                return new Observable<T>();
 
             // Get the type of the component
             Type type = sourceComponent.GetType();
@@ -41,7 +42,7 @@ namespace Clovers.Tools
             if (field == null)
             {
                 Debug.LogWarning($"{fieldName} not found on {sourceComponent.name}");
-                return null;
+                return new Observable<T>();
             }
 
             // Attempt to get the value as Observable<T>
@@ -52,7 +53,7 @@ namespace Clovers.Tools
             }
 
             Debug.LogWarning($"{fieldName} on {sourceComponent.name} is not an Observable<{typeof(T)}>.");
-            return null;
+            return new Observable<T>();
         }
     }
 }
